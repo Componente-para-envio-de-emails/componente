@@ -66,6 +66,7 @@ public class JakartaMailSender implements EmailSender {
         }
     }
 
+    @Override
     public void addContent(MimeBodyPart bodyPart) throws MessagingException {
         content.addBodyPart(bodyPart);
     }
