@@ -6,17 +6,9 @@
 
     <groupId>br.com.ucsal</groupId>
     <artifactId>emailsender</artifactId>
-    <version>1.0.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
     <name>emailsender</name>
-
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Maven Packages</name>
-            <url>https://maven.pkg.github.com/Componente-para-envio-de-emails/componente</url>
-        </repository>
-    </distributionManagement>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
