@@ -31,6 +31,5 @@ public class ImageEmailSender extends EmailDecorator {
 
     @Override
     public void addContent(MimeBodyPart bodyPart) throws MessagingException {
-
     }
 }
