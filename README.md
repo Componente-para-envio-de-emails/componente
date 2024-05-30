@@ -28,15 +28,6 @@ Este projeto fornece uma biblioteca para enviar e-mails com diferentes tipos de 
 
 ### Configuração Inicial
 
-Adicione as dependências necessárias ao seu projeto. Se estiver usando Maven, adicione ao seu `pom.xml`:
-
-```xml
-<dependency>
-    <groupId>com.sun.mail</groupId>
-    <artifactId>jakarta.mail</artifactId>
-    <version>2.0.0</version>
-</dependency>
-
 ### Exemplos de Uso
 
 - **Enviar um e-mail simples:
@@ -48,26 +39,23 @@ enviador.enviarEmail("destinatario@example.com", "Assunto do E-mail");
 EnviadorDeEmail enviador = new EnviadorDeEmailComArquivo(new EnviadorDeEmailJakarta("smtp.example.com", "usuario@example.com", "senha"));
 enviador.criarConteudo("Corpo do e-mail", "/caminho/para/anexo.txt", "anexo.txt");
 enviador.enviarEmail("destinatario@example.com", "Assunto do E-mail");
+
 - **Enviar um e-mail com imagem embutida
 EnviadorDeEmail enviador = new EnviadorDeEmailComImagem(new EnviadorDeEmailJakarta("smtp.example.com", "usuario@example.com", "senha"));
 enviador.criarConteudo("Corpo do e-mail", "/caminho/para/imagem.jpg", "imagem.jpg");
 enviador.enviarEmail("destinatario@example.com", "Assunto do E-mail");
+
 - **Enviar um e-mail para múltiplos destinatários
 Set<String> destinatarios = new HashSet<>(Arrays.asList("dest1@example.com", "dest2@example.com"));
 EnviadorDeEmail enviador = new EnviadorDeEmailParaMultiplosDestinatarios(new EnviadorDeEmailJakarta("smtp.example.com", "usuario@example.com", "senha"));
 enviador.criarConteudo("Corpo do e-mail", null, null);
 ((EnviadorDeEmailParaMultiplosDestinatarios) enviador).enviarEmail(destinatarios, "Assunto do E-mail");
+
 - **Usar um template de e-mail
 EmailTemplateRepository templateRepository = EmailTemplateRepository.getInstance();
 templateRepository.addTemplate("bemVindo", new EmailTemplate("Bem-vindo!", "Olá, seja bem-vindo ao nosso serviço!"));
 
 EmailTemplate template = templateRepository.getTemplate("bemVindo");
-
 EnviadorDeEmail enviador = new EnviadorDeEmailJakarta("smtp.example.com", "usuario@example.com", "senha");
 enviador.criarConteudo(template.getBody(), null, null);
 enviador.enviarEmail("destinatario@example.com", template.getSubject());
-
-
-
-
-
