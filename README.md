@@ -36,25 +36,28 @@ Adicione as dependências necessárias ao seu projeto. Se estiver usando Maven, 
     <artifactId>jakarta.mail</artifactId>
     <version>2.0.0</version>
 </dependency>
-Exemplos de Uso
-Enviar um e-mail simples
+
+### Exemplos de Uso
+
+- **Enviar um e-mail simples:
 EnviadorDeEmail enviador = new EnviadorDeEmailJakarta("smtp.example.com", "usuario@example.com", "senha");
 enviador.criarConteudo("Corpo do e-mail", null, null);
 enviador.enviarEmail("destinatario@example.com", "Assunto do E-mail");
-Enviar um e-mail com anexo
+
+- **Enviar um e-mail com anexo
 EnviadorDeEmail enviador = new EnviadorDeEmailComArquivo(new EnviadorDeEmailJakarta("smtp.example.com", "usuario@example.com", "senha"));
 enviador.criarConteudo("Corpo do e-mail", "/caminho/para/anexo.txt", "anexo.txt");
 enviador.enviarEmail("destinatario@example.com", "Assunto do E-mail");
-Enviar um e-mail com imagem embutida
+- **Enviar um e-mail com imagem embutida
 EnviadorDeEmail enviador = new EnviadorDeEmailComImagem(new EnviadorDeEmailJakarta("smtp.example.com", "usuario@example.com", "senha"));
 enviador.criarConteudo("Corpo do e-mail", "/caminho/para/imagem.jpg", "imagem.jpg");
 enviador.enviarEmail("destinatario@example.com", "Assunto do E-mail");
-Enviar um e-mail para múltiplos destinatários
+- **Enviar um e-mail para múltiplos destinatários
 Set<String> destinatarios = new HashSet<>(Arrays.asList("dest1@example.com", "dest2@example.com"));
 EnviadorDeEmail enviador = new EnviadorDeEmailParaMultiplosDestinatarios(new EnviadorDeEmailJakarta("smtp.example.com", "usuario@example.com", "senha"));
 enviador.criarConteudo("Corpo do e-mail", null, null);
 ((EnviadorDeEmailParaMultiplosDestinatarios) enviador).enviarEmail(destinatarios, "Assunto do E-mail");
-Usar um template de e-mail
+- **Usar um template de e-mail
 EmailTemplateRepository templateRepository = EmailTemplateRepository.getInstance();
 templateRepository.addTemplate("bemVindo", new EmailTemplate("Bem-vindo!", "Olá, seja bem-vindo ao nosso serviço!"));
 
